@@ -1,81 +1,109 @@
+// 🔹 AQUÍ VAN LOS PRODUCTOS (por ahora vacío)
+const productos = [
+  // Cuando tengas productos, aquí los agregas
+];
+
+// 🔹 Carrito
 let carrito = [];
 
-function agregarCarrito(nombre, precio) {
-  const producto = carrito.find(item => item.nombre === nombre);
+// 🔹 Obtener precio según cantidad (mayorista)
+function obtenerPrecioUnitario(producto, cantidad) {
+  let precio = producto.precios[0].precio;
 
-  if (producto) {
-    producto.cantidad++;
-  } else {
-    carrito.push({ nombre, precio, cantidad: 1 });
-  }
-
-  actualizarCarrito();
-}
-
-function aumentarCantidad(nombre) {
-  const producto = carrito.find(item => item.nombre === nombre);
-  if (producto) {
-    producto.cantidad++;
-    actualizarCarrito();
-  }
-}
-
-function disminuirCantidad(nombre) {
-  const producto = carrito.find(item => item.nombre === nombre);
-  if (producto) {
-    producto.cantidad--;
-    if (producto.cantidad <= 0) {
-      carrito = carrito.filter(item => item.nombre !== nombre);
+  producto.precios.forEach(p => {
+    if (cantidad >= p.min) {
+      precio = p.precio;
     }
-    actualizarCarrito();
-  }
-}
-
-function eliminarProducto(nombre) {
-  carrito = carrito.filter(item => item.nombre !== nombre);
-  actualizarCarrito();
-}
-
-function actualizarCarrito() {
-  const lista = document.getElementById("lista-carrito");
-  const totalSpan = document.getElementById("total");
-
-  lista.innerHTML = "";
-  let total = 0;
-
-  carrito.forEach(item => {
-    total += item.precio * item.cantidad;
-
-    const li = document.createElement("li");
-    li.innerHTML = `
-      <strong>${item.nombre}</strong><br>
-      S/ ${item.precio} x ${item.cantidad} = S/ ${(item.precio * item.cantidad).toFixed(2)}
-      <div class="cantidad-controles">
-        <button onclick="disminuirCantidad('${item.nombre}')">−</button>
-        <button onclick="aumentarCantidad('${item.nombre}')">+</button>
-        <button class="eliminar" onclick="eliminarProducto('${item.nombre}')">✕</button>
-      </div>
-    `;
-    lista.appendChild(li);
   });
 
-  totalSpan.textContent = total.toFixed(2);
+  return precio;
 }
 
-function comprarWhatsApp() {
-  if (carrito.length === 0) {
-    alert("El carrito está vacío");
+// 🔹 Agregar producto
+function agregarAlCarrito(id) {
+  const item = carrito.find(p => p.id === id);
+
+  if (item) {
+    item.cantidad++;
+  } else {
+    carrito.push({ id, cantidad: 1 });
+  }
+
+  renderCarrito();
+}
+
+// 🔹 Cambiar cantidad
+function cambiarCantidad(id, cambio) {
+  const item = carrito.find(p => p.id === id);
+  if (!item) return;
+
+  item.cantidad += cambio;
+
+  if (item.cantidad <= 0) {
+    carrito = carrito.filter(p => p.id !== id);
+  }
+
+  renderCarrito();
+}
+
+// 🔹 Eliminar producto
+function eliminarProducto(id) {
+  carrito = carrito.filter(p => p.id !== id);
+  renderCarrito();
+}
+
+// 🔹 Mostrar productos
+function renderProductos() {
+  const contenedor = document.getElementById("productos");
+  contenedor.innerHTML = "";
+
+  if (productos.length === 0) {
+    contenedor.innerHTML = "<p>Aún no hay productos cargados.</p>";
     return;
   }
 
-  let mensaje = "Hola, quiero hacer el siguiente pedido:%0A";
+  productos.forEach(p => {
+    contenedor.innerHTML += `
+      <div class="producto">
+        <h3>${p.nombre}</h3>
+        <p>Precio desde S/ ${p.precios[p.precios.length - 1].precio}</p>
+        <button onclick="agregarAlCarrito(${p.id})">Agregar</button>
+      </div>
+    `;
+  });
+}
+
+// 🔹 Mostrar carrito
+function renderCarrito() {
+  const contenedor = document.getElementById("carrito");
+  contenedor.innerHTML = "";
+  let total = 0;
 
   carrito.forEach(item => {
-    mensaje += `- ${item.nombre} x${item.cantidad} (S/ ${(item.precio * item.cantidad).toFixed(2)})%0A`;
+    const producto = productos.find(p => p.id === item.id);
+    const precioUnitario = obtenerPrecioUnitario(producto, item.cantidad);
+    const subtotal = precioUnitario * item.cantidad;
+    total += subtotal;
+
+    contenedor.innerHTML += `
+      <div class="item-carrito">
+        <strong>${producto.nombre}</strong><br>
+        Precio unitario: S/ ${precioUnitario}<br>
+
+        <div class="cantidad">
+          <button onclick="cambiarCantidad(${item.id}, -1)">−</button>
+          ${item.cantidad}
+          <button onclick="cambiarCantidad(${item.id}, 1)">+</button>
+        </div>
+
+        Subtotal: S/ ${subtotal.toFixed(2)}<br>
+        <button onclick="eliminarProducto(${item.id})">Eliminar</button>
+      </div>
+    `;
   });
 
-  const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
-  mensaje += `%0ATotal: S/ ${total.toFixed(2)}`;
-
-  window.open(`https://wa.me/51975455690?text=${mensaje}`, "_blank");
+  document.getElementById("total").innerText = total.toFixed(2);
 }
+
+// 🔹 Iniciar
+renderProductos();
