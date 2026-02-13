@@ -265,3 +265,15 @@ footer {
   border: 1px solid #ccc;
   width: 250px;
 }
+@media (max-width: 768px) {
+
+  #lista-productos {
+    justify-content: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+}
+
