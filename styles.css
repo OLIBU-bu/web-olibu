@@ -75,13 +75,7 @@ body {
 
 
 /* Capa oscura para mejor lectura */
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: -1;
-}
+
 
 .hero-text {
   text-align: center;
@@ -683,6 +677,7 @@ footer {
     padding: 40px 0;
   }
 }
+
 
 
 
