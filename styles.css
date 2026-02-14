@@ -624,6 +624,52 @@ footer {
   .cards { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
   .producto-img { height: 120px; }
 }
+.btn-carrito-flotante {
+  position: fixed;
+  bottom: 90px; /* Encima del WhatsApp */
+  right: 20px;
+  background: var(--verde-principal);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  text-decoration: none;
+  z-index: 999;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.btn-carrito-flotante:hover {
+  transform: scale(1.1);
+  background: var(--verde-secundario);
+}
+
+#contador-carrito {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff4444;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Oculta si vacío */
+.btn-carrito-flotante.vacio {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 
 
 
