@@ -8,7 +8,7 @@
   --gris: #666;
 }
 
-/* RESET GENERAL */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +21,7 @@ body {
   color: #333;
 }
 
-/* CONTENEDOR GENERAL */
+/* CONTENEDOR */
 .container {
   max-width: 1200px;
   margin: auto;
@@ -36,16 +36,14 @@ body {
   background: #fafafa;
 }
 
-/* HERO - HERO CON IMAGEN Y ESPACIO PARA NAVBAR */
+/* ================= HERO CORREGIDO ================= */
 .hero {
-  position: relative;
   width: 100%;
   height: 100vh;
   min-height: 600px;
-  margin: 0;
   padding: 180px 20px 80px;
 
-  background: 
+  background:
     linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
     url("img/fondo.png");
 
@@ -79,7 +77,7 @@ body {
   font-size: 18px;
 }
 
-/* Botón WhatsApp hero */
+/* BOTÓN WHATSAPP HERO */
 .btn-whatsapp {
   background: white;
   color: var(--verde-principal);
@@ -96,7 +94,7 @@ body {
   box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
 
-/* NAVBAR FIJA PROFESIONAL */
+/* ================= NAVBAR ================= */
 .navbar {
   position: fixed;
   top: 0;
@@ -111,7 +109,6 @@ body {
   transition: all 0.4s ease;
 }
 
-/* Estado cuando haces scroll */
 .navbar.scrolled {
   background: rgba(46, 77, 60, 0.95);
   backdrop-filter: blur(8px);
@@ -119,7 +116,6 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -135,7 +131,6 @@ body {
   object-fit: contain;
 }
 
-/* Menú */
 .navbar ul {
   list-style: none;
   display: flex;
@@ -147,10 +142,8 @@ body {
   color: white;
   font-weight: 500;
   position: relative;
-  transition: 0.3s;
 }
 
-/* Línea animada debajo */
 .navbar a::after {
   content: '';
   position: absolute;
@@ -158,7 +151,7 @@ body {
   height: 2px;
   left: 0;
   bottom: -6px;
-  background: #ffffff;
+  background: white;
   transition: width 0.3s ease;
 }
 
@@ -166,11 +159,7 @@ body {
   width: 100%;
 }
 
-.navbar a:hover {
-  opacity: 0.8;
-}
-
-/* FILTROS PROFESIONALES */
+/* ================= FILTROS ================= */
 .filtros {
   display: flex;
   flex-wrap: wrap;
@@ -178,9 +167,9 @@ body {
   margin: 40px 0;
   justify-content: space-between;
   align-items: center;
-  position: relative;
 }
 
+/* CATEGORÍAS */
 .categorias button {
   padding: 12px 18px;
   border: none;
@@ -188,7 +177,6 @@ body {
   color: white;
   border-radius: 25px;
   cursor: pointer;
-  margin: 5px 0;
   transition: all 0.3s ease;
   font-weight: 500;
   font-size: 14px;
@@ -196,16 +184,14 @@ body {
 
 .categorias button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   background: var(--verde-principal);
 }
 
 .categorias button.activa {
   background: var(--verde-principal);
-  box-shadow: 0 5px 15px rgba(46, 77, 60, 0.3);
 }
 
-/* CONTENEDOR BUSCADOR PROFESIONAL */
+/* ================= BUSCADOR PROFESIONAL ================= */
 .buscador-container {
   position: relative;
   flex: 1;
@@ -213,45 +199,40 @@ body {
   max-width: 400px;
 }
 
-/* BUSCADOR PROFESIONAL MEJORADO */
 .buscador {
   width: 100%;
-  padding: 16px 22px 16px 50px; /* Espacio para icono */
+  padding: 16px 22px 16px 50px;
   border-radius: 30px;
   border: 2px solid transparent;
   font-size: 16px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background: white;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   font-weight: 500;
 }
 
-/* Efectos focus y hover */
+.buscador-container::before {
+  content: "🔍";
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: var(--gris);
+  pointer-events: none;
+}
+
 .buscador:focus {
   outline: none;
   border-color: var(--verde-principal);
   box-shadow: 0 12px 35px rgba(46, 77, 60, 0.3);
-  transform: translateY(-2px);
-  background: white;
 }
 
-.buscador:hover {
-  border-color: var(--verde-secundario);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.buscador::placeholder {
-  color: var(--gris);
-  font-weight: 500;
-}
-
-/* PRODUCTOS */
+/* ================= PRODUCTOS ================= */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 20px;
-  margin-top: 30px;
 }
 
 .card {
@@ -259,7 +240,7 @@ body {
   padding: 15px;
   border-radius: 16px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: 0.3s;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
@@ -278,7 +259,6 @@ body {
 .card h3 {
   font-size: 13px;
   margin-bottom: 8px;
-  line-height: 1.4;
 }
 
 .card p {
@@ -288,36 +268,17 @@ body {
   margin-bottom: 12px;
 }
 
-/* BOTONES PROFESIONALES */
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: 12px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Botón Agregar */
 .card button {
   background: linear-gradient(135deg, #2e7d32, #1b5e20);
   color: white;
-  padding: 10px 16px;
-  font-size: 13px;
-  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
+  padding: 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
   width: 100%;
 }
 
-.card button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(46, 125, 50, 0.4);
-}
-
-.card button:active {
-  transform: scale(0.98);
-}
-
-/* CARRITO */
+/* ================= CARRITO ================= */
 .carrito {
   position: fixed;
   top: 0;
@@ -328,7 +289,7 @@ button {
   padding: 25px;
   overflow-y: auto;
   box-shadow: -8px 0 25px rgba(0,0,0,0.25);
-  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: right 0.4s ease;
   z-index: 1000;
 }
 
@@ -342,147 +303,24 @@ button {
   font-size: 28px;
   cursor: pointer;
   float: right;
-  color: var(--gris);
-  transition: all 0.3s ease;
-  padding: 5px;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.cerrar-carrito:hover {
-  transform: rotate(90deg) scale(1.1);
-  color: #c62828;
-  background: rgba(198, 40, 40, 0.1);
-}
-
-.carrito h3 {
-  margin-bottom: 20px;
-  color: var(--verde-principal);
-  font-size: 24px;
-}
-
-.item-carrito {
-  margin-bottom: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.item-carrito:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-}
-
-.item-carrito button {
-  background: #f5f5f5;
-  padding: 6px 12px;
-  font-weight: 600;
-  font-size: 14px;
-  border-radius: 8px;
-  min-width: 35px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.item-carrito button:hover {
-  background: #e0e0e0;
-  transform: scale(1.05);
-}
-
-.item-carrito button:last-child {
-  background: #c62828;
-  color: white;
-  font-size: 12px;
-  padding: 8px 12px;
-  width: 100%;
-  margin-top: 8px;
-}
-
-.item-carrito button:last-child:hover {
-  background: #e53935;
-  transform: translateY(-1px);
-}
-
-/* BOTÓN COMPRAR WHATSAPP CARRITO - PROFESIONAL */
+/* BOTÓN COMPRAR CARRITO */
 .carrito button[onclick="comprarWhatsApp()"] {
   width: 100%;
-  padding: 20px 30px;
-  margin-top: 25px;
-  background: linear-gradient(135deg, var(--verde-principal), var(--verde-secundario));
-  color: white;
-  font-size: 18px;
-  font-weight: 700;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(46, 77, 60, 0.4);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
-}
-
-.carrito button[onclick="comprarWhatsApp()"]::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  transition: left 0.5s;
-}
-
-.carrito button[onclick="comprarWhatsApp()"]:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(46, 77, 60, 0.5);
-}
-
-.carrito button[onclick="comprarWhatsApp()"]:hover::before {
-  left: 100%;
-}
-
-.carrito button[onclick="comprarWhatsApp()"]:active {
-  transform: scale(0.98);
-}
-
-/* WHATSAPP FLOTANTE */
-.whatsapp {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: #25D366;
-  color: white;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  text-decoration: none;
-  z-index: 999;
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-  transition: all 0.3s ease;
-}
-
-.whatsapp:hover {
-  transform: scale(1.1) translateY(-3px);
-}
-
-/* BOTÓN CARRITO FLOTANTE */
-.btn-carrito-flotante {
-  position: fixed;
-  bottom: 105px; /* Encima del WhatsApp */
-  right: 25px;
+  padding: 18px;
+  margin-top: 20px;
   background: var(--verde-principal);
   color: white;
+  border-radius: 30px;
+  font-weight: 700;
+}
+
+/* ================= BOTONES FLOTANTES ================= */
+.whatsapp,
+.btn-carrito-flotante {
+  position: fixed;
+  right: 25px;
   width: 65px;
   height: 65px;
   border-radius: 50%;
@@ -490,20 +328,19 @@ button {
   align-items: center;
   justify-content: center;
   font-size: 26px;
+  color: white;
   text-decoration: none;
   z-index: 999;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(46, 77, 60, 0.4);
 }
 
-.btn-carrito-flotante:hover {
-  transform: scale(1.1) translateY(-3px);
-  background: var(--verde-secundario);
+.whatsapp {
+  bottom: 25px;
+  background: #25D366;
 }
 
-.btn-carrito-flotante.vacio {
-  opacity: 0.6;
-  transform: scale(0.9);
+.btn-carrito-flotante {
+  bottom: 105px;
+  background: var(--verde-principal);
 }
 
 #contador-carrito {
@@ -511,26 +348,16 @@ button {
   top: -6px;
   right: -6px;
   background: #ff4444;
-  color: white;
   border-radius: 50%;
-  min-width: 24px;
-  height: 24px;
+  min-width: 22px;
+  height: 22px;
   font-size: 12px;
-  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(255, 68, 68, 0.4);
 }
 
-/* TOTAL CARRITO */
-#total {
-  font-size: 24px;
-  color: var(--verde-principal);
-  font-weight: 700;
-}
-
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer {
   text-align: center;
   padding: 30px;
@@ -539,119 +366,32 @@ footer {
   margin-top: 60px;
 }
 
-/* SECCIONES CENTRADAS */
-#nosotros, #beneficios, #contacto {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.beneficios {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
-}
-
-.beneficios li {
-  margin-bottom: 12px;
-  font-size: 16px;
-}
-
-#contacto a {
-  color: var(--verde-claro);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-#contacto a:hover {
-  color: white;
-}
-
-/* RESPONSIVE */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     gap: 15px;
     padding: 15px 20px;
   }
-  
+
   .hero {
     padding: 120px 20px 60px;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
-  
+
   .hero-text h1 {
     font-size: 32px;
   }
-  
+
   .carrito {
     width: 100%;
     right: -100%;
   }
-  
+
   .cards {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
   }
-  
+
   .filtros {
     flex-direction: column;
-    gap: 15px;
-  }
-  
-  .buscador-container {
-    min-width: auto;
-    max-width: none;
-    order: -1;
   }
 }
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
-  }
-  
-  .cards {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-  
-  .card {
-    padding: 20px;
-  }
-  
-  .buscador {
-    padding: 18px 24px 18px 55px;
-    font-size: 18px;
-  }
-  
-  .buscador-container::before {
-    left: 22px;
-    font-size: 20px;
-  }
-  
-  .whatsapp, .btn-carrito-flotante {
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
-  }
-  
-  .btn-carrito-flotante {
-    bottom: 95px;
-  }
-  
-  .section {
-    padding: 40px 0;
-  }
-}
-
-
-
-
-
-
-
-
