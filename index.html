@@ -2,110 +2,95 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>OLIBU Natural</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OLIBU Natural - Bienestar natural desde el origen</title>
-    
-    <!-- FUENTES -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" relstylesheet>
-    
-    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- BOTÓN WHATSAPP FLOTANTE - Cambia el número aquí -->
-    <a href="https://wa.me/51975455690" class="whatsapp" target="_blank">💬</a>
-    
-    <!-- BOTÓN CARRITO FLOTANTE -->
-    <a href="#" id="btn-carrito-flotante" class="btn-carrito-flotante" title="Ver carrito">
-        🛒 <span id="contador-carrito">0</span>
-    </a>
 
-    <header class="navbar">
-        <div class="logo">
-            <img src="img/logo.png" alt="Logo OLIBU" class="logo-img">
-            <span>OLIBU</span>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#beneficios">Beneficios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- BOTÓN WHATSAPP FLOTANTE -->
+<a href="https://wa.me/51975455690" class="whatsapp" target="_blank">💬</a>
 
-    <!-- HEADER HERO - Cambia aquí el texto principal -->
-    <header class="hero">
-        <div class="hero-text">
-            <!-- Cambiar texto principal aquí -->
-            <h1>Amor por la Tierra <span>Nuestra raíz</span></h1>
-            <p>El poder del olivo en tu hogar</p>
-            <a href="#" class="btn-whatsapp">Comprar por WhatsApp</a>
-        </div>
-    </header>
+<!-- BOTÓN CARRITO FLOTANTE -->
+<a href="#" id="btn-carrito-flotante" class="btn-carrito-flotante" title="Ver carrito">
+    🛒 <span id="contador-carrito">0</span>
+</a>
 
-    <!-- PRODUCTOS -->
-    <section id="productos" class="section container">
-        <h2>Nuestros Productos</h2>
-        
-        <!-- FILTROS -->
-        <div class="filtros">
-            <div class="categorias" id="menu-categorias"></div>
-            <!-- Cambiar placeholder aquí -->
-            <input type="text" id="buscador" placeholder="Buscar producto..." oninput="filtrarProductos()">
-        </div>
-        
-        <!-- Lista dinámica -->
-        <div class="cards" id="lista-productos"></div>
-    </section>
-
-    <!-- NOSOTROS - Cambia texto aquí -->
-    <section id="nosotros" class="section container light">
-        <h2>Nuestra Historia</h2>
-        <p>OLIBU es una marca familiar con raíces en el cultivo del olivo en el desierto peruano. Nos guiamos por la honestidad, el respeto, el liderazgo y el servicio, ofreciendo productos naturales de alta calidad.</p>
-    </section>
-
-    <!-- BENEFICIOS -->
-    <section id="beneficios" class="section container">
-        <h2>Beneficios del Olivo</h2>
-        <!-- Puedes editar los beneficios aquí -->
-        <ul class="beneficios">
-            <li>Rico en antioxidantes y polifenoles</li>
-            <li>Beneficia la salud cardiovascular</li>
-            <li>Ideal para piel sensible</li>
-            <li>Producto natural y típico</li>
+<header class="navbar">
+    <div class="logo">
+        <img src="img/logo.png" alt="Logo OLIBU" class="logo-img">
+        <span>OLIBU</span>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
         </ul>
-    </section>
+    </nav>
+</header>
 
-    <!-- CONTACTO - Cambia datos aquí -->
-    <section id="contacto" class="section container">
-        <h2>Contacto</h2>
-        <p>Delivery en todo el Perú</p>
-        <p>olibunatural@gmail.com</p>
-        <p>Síguenos 
-            <a href="https://www.instagram.com/olibunatural" target="_blank">Instagram</a>
-            <a href="https://www.facebook.com/Olibunatural" target="_blank">Facebook</a>
-        </p>
-    </section>
+<header class="hero">
+    <div class="hero-text">
+        <h1>Amor por la Tierra <span>Nuestra raíz</span></h1>
+        <p>El poder del olivo en tu hogar</p>
+        <a href="#" class="btn-hero">Comprar por WhatsApp</a>
+    </div>
+</header>
 
-    <!-- CARRITO -->
-    <div id="carrito" class="carrito">
-        <button onclick="cerrarCarrito()" class="cerrar-carrito">×</button>
-        <h3>Carrito</h3>
-        <ul id="lista-carrito"></ul>
-        <p><strong>Total: S/ <span id="total">0.00</span></strong></p>
-        <button onclick="comprarWhatsApp()">Comprar por WhatsApp</button>
+<section id="productos" class="section container">
+    <h2>Nuestros Productos</h2>
+
+    <div class="filtros">
+        <div class="categorias" id="menu-categorias"></div>
+
+        <!-- Buscador con contenedor -->
+        <div class="buscador-container">
+            <input type="text" id="buscador" class="buscador" placeholder="Buscar producto...">
+        </div>
     </div>
 
-    <footer>
-        <p>© 2026 OLIBU Natural - Todos los derechos reservados</p>
-    </footer>
+    <div class="cards" id="lista-productos"></div>
+</section>
 
-    <!-- JS -->
-    <script src="productos.js"></script>
-    <script src="script.js"></script>
+<section id="nosotros" class="section container light">
+    <h2>Nuestra Historia</h2>
+    <p>OLIBU es una marca familiar con raíces en el cultivo del olivo en el desierto peruano...</p>
+</section>
+
+<section id="beneficios" class="section container">
+    <h2>Beneficios del Olivo</h2>
+    <ul class="beneficios">
+        <li>Rico en antioxidantes y polifenoles</li>
+        <li>Beneficia la salud cardiovascular</li>
+        <li>Ideal para piel sensible</li>
+        <li>Producto natural y típico</li>
+    </ul>
+</section>
+
+<section id="contacto" class="section container">
+    <h2>Contacto</h2>
+    <p>Delivery en todo el Perú</p>
+    <p>olibunatural@gmail.com</p>
+</section>
+
+<!-- CARRITO -->
+<div id="carrito" class="carrito">
+    <button onclick="cerrarCarrito()" class="cerrar-carrito">×</button>
+    <h3>Carrito</h3>
+    <ul id="lista-carrito"></ul>
+    <p class="total-carrito">Total: S/ <span id="total">0.00</span></p>
+    <button onclick="comprarWhatsApp()" class="btn-comprar">Comprar por WhatsApp</button>
+</div>
+
+<footer>
+    <p>© 2026 OLIBU Natural</p>
+</footer>
+
+<script src="productos.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
-
