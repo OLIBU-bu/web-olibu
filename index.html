@@ -6,7 +6,7 @@
     <title>OLIBU Natural - Bienestar natural desde el origen</title>
     
     <!-- FUENTES -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" relstylesheet>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
     
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
@@ -50,11 +50,13 @@
     <section id="productos" class="section container">
         <h2>Nuestros Productos</h2>
         
-        <!-- FILTROS -->
+        <!-- FILTROS PROFESIONALES -->
         <div class="filtros">
             <div class="categorias" id="menu-categorias"></div>
-            <!-- Cambiar placeholder aquí -->
-            <input type="text" id="buscador" placeholder="Buscar producto..." oninput="filtrarProductos()">
+            <!-- Buscador profesional mejorado -->
+            <div class="buscador-container">
+                <input type="text" id="buscador" class="buscador" placeholder="🔍 Buscar productos..." oninput="filtrarProductos()">
+            </div>
         </div>
         
         <!-- Lista dinámica -->
@@ -93,10 +95,10 @@
     <!-- CARRITO -->
     <div id="carrito" class="carrito">
         <button onclick="cerrarCarrito()" class="cerrar-carrito">×</button>
-        <h3>Carrito</h3>
+        <h3>🛒 Carrito de Compras</h3>
         <ul id="lista-carrito"></ul>
         <p><strong>Total: S/ <span id="total">0.00</span></strong></p>
-        <button onclick="comprarWhatsApp()">Comprar por WhatsApp</button>
+        <button onclick="comprarWhatsApp()" class="btn-comprar-whatsapp">🟢 Comprar por WhatsApp</button>
     </div>
 
     <footer>
