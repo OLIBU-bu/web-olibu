@@ -37,13 +37,42 @@ body {
 }
 
 /* HERO - HERO CON IMAGEN Y ESPACIO PARA NAVBAR */
+/* HERO - FUNCIONA SIEMPRE - MÚLTIPLES FIX */
 .hero {
   position: relative;
-  background: url('img/fondo.png') center/cover no-repeat;
+  width: 100%;
+  height: 100vh;                    /* Altura FIJA */
+  min-height: 600px;                /* Mínimo garantizado */
+  margin: 0;
+  padding: 180px 20px 80px;         /* Más espacio navbar */
+  
+  /* MÉTODO 1: background-image SEPARADO (más confiable) */
+  background-image: url(img/fondo.png);
+  background-color: #2e4d3c;        /* Fallback color */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;     /* Efecto parallax */
+  
+  /* Overlay oscuro */
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url(img/fondo.png);
+    
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
-  padding: 160px 20px 100px; /* espacio para navbar fija */
-  z-index: 1;
+  overflow: hidden;
 }
+
+/* FIX para navegadores */
+@supports not (background-attachment: fixed) {
+  .hero {
+    background-attachment: scroll;
+  }
+}
+
 
 /* Capa oscura para mejor lectura */
 .hero::before {
@@ -654,6 +683,7 @@ footer {
     padding: 40px 0;
   }
 }
+
 
 
 
