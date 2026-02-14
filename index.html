@@ -2,14 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Olibu - Productos de Olivo</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Olibu - Productos del Olivo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <header class="navbar">
   <div class="logo">
     <img src="img/logo.png" class="logo-img">
@@ -18,37 +17,31 @@
 
   <ul>
     <li><a href="#productos">Productos</a></li>
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#contacto">Contacto</a></li>
   </ul>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <h1>Lo mejor del <span>Olivo Peruano</span></h1>
-    <p>Productos naturales y de alta calidad</p>
+    <p>Calidad natural directamente del productor</p>
     <a href="https://wa.me/51999999999" target="_blank" class="btn-whatsapp">
       Comprar por WhatsApp
     </a>
   </div>
 </section>
 
-<!-- PRODUCTOS -->
 <section id="productos" class="section">
   <div class="container">
 
-    <!-- FILTROS -->
     <div class="filtros">
 
-      <!-- CATEGORÍAS -->
       <div class="categorias">
         <button class="activa" onclick="filtrarCategoria('todos')">Todos</button>
         <button onclick="filtrarCategoria('aceite')">Aceites</button>
         <button onclick="filtrarCategoria('aceituna')">Aceitunas</button>
+        <button onclick="filtrarCategoria('crema')">Cremas</button>
       </div>
 
-      <!-- BUSCADOR CORREGIDO (SIN EMOJI) -->
       <div class="buscador-container">
         <input 
           type="text" 
@@ -60,15 +53,11 @@
 
     </div>
 
-    <!-- CARDS -->
-    <div class="cards" id="lista-productos">
-      <!-- Productos generados por JS -->
-    </div>
+    <div class="cards" id="lista-productos"></div>
 
   </div>
 </section>
 
-<!-- CARRITO -->
 <div class="carrito" id="carrito">
   <button class="cerrar-carrito" onclick="cerrarCarrito()">×</button>
   <h2>Tu Carrito</h2>
@@ -77,19 +66,13 @@
   <button onclick="comprarWhatsApp()">Comprar por WhatsApp</button>
 </div>
 
-<!-- BOTONES FLOTANTES -->
-<a href="https://wa.me/51999999999" target="_blank" class="whatsapp">
-  🟢
-</a>
-
 <button class="btn-carrito-flotante" onclick="abrirCarrito()">
   🛒
   <span id="contador-carrito">0</span>
 </button>
 
-<!-- FOOTER -->
 <footer>
-  <p>© 2025 Olibu - Productos Naturales del Olivo</p>
+  <p>© 2025 Olibu</p>
 </footer>
 
 <script src="script.js"></script>
