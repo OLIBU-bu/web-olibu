@@ -194,12 +194,52 @@ body {
   background: var(--verde-principal);
 }
 
-/* Buscador */
+/* ================= BUSCADOR PROFESIONAL ================= */
+
+.buscador-container {
+  position: relative;
+  width: 320px;
+  max-width: 100%;
+}
+
+/* Ícono */
+.buscador-container::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  background-image: url("https://cdn-icons-png.flaticon.com/512/149/149852.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Input */
 .buscador {
-  padding: 8px 12px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  min-width: 200px;
+  width: 100%;
+  padding: 14px 20px 14px 45px;
+  border-radius: 40px;
+  border: 1px solid #ddd;
+  background: #ffffff;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  outline: none;
+}
+
+/* Hover */
+.buscador:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Focus (cuando escribes) */
+.buscador:focus {
+  border: 1px solid var(--verde);
+  box-shadow: 0 6px 20px rgba(46,77,60,0.25);
 }
 
 /* PRODUCTOS */
@@ -575,3 +615,4 @@ footer {
   .whatsapp, .btn-carrito-flotante { width: 55px; height: 55px; font-size: 20px; }
   .btn-carrito-flotante { bottom: 80px; }
 }
+
