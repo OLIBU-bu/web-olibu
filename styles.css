@@ -36,15 +36,16 @@ body {
   background: #fafafa;
 }
 
-/* HERO */
+/* HERO - HERO CON IMAGEN Y ESPACIO PARA NAVBAR */
 .hero {
   position: relative;
   background: url('img/fondo.png') center/cover no-repeat;
   color: white;
-  padding: 160px 20px 100px;
+  padding: 160px 20px 100px; /* espacio para navbar fija */
   z-index: 1;
 }
 
+/* Capa oscura para mejor lectura */
 .hero::before {
   content: '';
   position: absolute;
@@ -72,7 +73,7 @@ body {
   font-size: 18px;
 }
 
-/* BOTÓN WHATSAPP HERO */
+/* Botón WhatsApp hero */
 .btn-whatsapp {
   background: white;
   color: var(--verde-principal);
@@ -89,7 +90,7 @@ body {
   box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
 
-/* NAVBAR */
+/* NAVBAR FIJA PROFESIONAL */
 .navbar {
   position: fixed;
   top: 0;
@@ -99,11 +100,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 2000;
+  z-index: 1000;
   background: transparent;
   transition: all 0.4s ease;
 }
 
+/* Estado cuando haces scroll */
 .navbar.scrolled {
   background: rgba(46, 77, 60, 0.95);
   backdrop-filter: blur(8px);
@@ -111,6 +113,7 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -126,6 +129,7 @@ body {
   object-fit: contain;
 }
 
+/* Menú */
 .navbar ul {
   list-style: none;
   display: flex;
@@ -140,6 +144,7 @@ body {
   transition: 0.3s;
 }
 
+/* Línea animada debajo */
 .navbar a::after {
   content: '';
   position: absolute;
@@ -153,6 +158,10 @@ body {
 
 .navbar a:hover::after {
   width: 100%;
+}
+
+.navbar a:hover {
+  opacity: 0.8;
 }
 
 /* FILTROS */
@@ -185,43 +194,12 @@ body {
   background: var(--verde-principal);
 }
 
-/* BUSCADOR */
-.buscador-container {
-  position: relative;
-  width: 320px;
-  max-width: 100%;
-}
-
-.buscador-container::before {
-  content: "";
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  background-image: url("https://cdn-icons-png.flaticon.com/512/149/149852.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.6;
-  pointer-events: none;
-}
-
+/* Buscador */
 .buscador {
-  width: 100%;
-  padding: 14px 20px 14px 45px;
-  border-radius: 40px;
-  border: 1px solid #ddd;
-  background: #ffffff;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  outline: none;
-}
-
-.buscador:focus {
-  border: 1px solid var(--verde-principal);
-  box-shadow: 0 6px 20px rgba(46,77,60,0.25);
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  min-width: 200px;
 }
 
 /* PRODUCTOS */
@@ -234,12 +212,10 @@ body {
 
 .card {
   background: white;
-  padding: 12px;
+  padding: 10px;
   border-radius: 12px;
   text-align: center;
   transition: 0.25s;
-  display: flex;
-  flex-direction: column;
 }
 
 .card:hover {
@@ -265,21 +241,57 @@ body {
   margin-bottom: 8px;
 }
 
-/* BOTÓN AGREGAR */
+/* BOTONES PROFESIONALES */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+/* Botón Agregar */
 .card button {
   background: linear-gradient(135deg, #2e7d32, #1b5e20);
   color: white;
-  padding: 8px;
-  font-size: 13px;
-  border-radius: 30px;
-  width: 100%;
-  margin-top: auto;
-  transition: 0.3s;
+  padding: 6px 10px;
+  font-size: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 .card button:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+.card button:active {
+  transform: scale(0.95);
+}
+
+/* Botones carrito */
+.item-carrito button {
+  background: #f1f1f1;
+  padding: 4px 8px;
+  font-weight: bold;
+}
+
+.item-carrito button:hover {
+  background: #ddd;
+  transform: scale(1.1);
+}
+
+/* Botón eliminar */
+.item-carrito button:last-child {
+  background: #c62828;
+  color: white;
+  font-size: 12px;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.item-carrito button:last-child:hover {
+  background: #e53935;
+  transform: translateY(-2px);
 }
 
 /* CARRITO */
@@ -292,13 +304,27 @@ body {
   background: white;
   padding: 20px;
   overflow-y: auto;
-  box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+  box-shadow: -5px 0 10px rgba(0,0,0,0.2);
   transition: right 0.3s ease;
-  z-index: 3000;
+  z-index: 1000;
 }
 
 .carrito.activo {
   right: 0;
+}
+
+.cerrar-carrito {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  float: right;
+  transition: 0.3s;
+}
+
+.cerrar-carrito:hover {
+  transform: rotate(90deg);
+  color: #c62828;
 }
 
 .item-carrito {
@@ -307,44 +333,18 @@ body {
   padding-bottom: 10px;
 }
 
-/* BOTÓN COMPRAR WHATSAPP PROFESIONAL */
-.btn-comprar {
-  width: 100%;
-  padding: 16px;
-  border-radius: 40px;
-  border: none;
-  background: linear-gradient(135deg, #25D366, #1ebe5d);
-  color: white;
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
-  margin-top: 15px;
-}
-
-.btn-comprar:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
-}
-
-/* BOTONES FLOTANTES */
+/* WHATSAPP FLOTANTE */
 .whatsapp {
   position: fixed;
   bottom: 20px;
   right: 20px;
   background: #25D366;
   color: white;
-  width: 60px;
-  height: 60px;
+  padding: 15px;
   border-radius: 50%;
-  font-size: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 22px;
   text-decoration: none;
-  z-index: 9999;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  z-index: 999;
   transition: 0.3s;
 }
 
@@ -352,23 +352,24 @@ body {
   transform: scale(1.1);
 }
 
+/* BOTÓN CARRITO FLOTANTE */
 .btn-carrito-flotante {
   position: fixed;
-  bottom: 95px;
+  bottom: 90px; /* Encima del WhatsApp */
   right: 20px;
   background: var(--verde-principal);
   color: white;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  font-size: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  z-index: 9999;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  font-size: 24px;
+  text-decoration: none;
+  z-index: 999;
   transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .btn-carrito-flotante:hover {
@@ -382,8 +383,8 @@ body {
   background: #ff4444;
   color: white;
   border-radius: 50%;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   font-size: 12px;
   font-weight: bold;
   display: flex;
@@ -401,12 +402,176 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .navbar { flex-direction: column; gap: 15px; }
-  .navbar ul { flex-wrap: wrap; justify-content: center; }
-  .hero-text h1 { font-size: 28px; }
-  .carrito { width: 100%; }
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .navbar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero-text h1 {
+    font-size: 28px;
+  }
+  .carrito {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+/* SECCIONES CENTRADAS Y ORDENADAS */
+#nosotros, #beneficios, #contacto {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* Texto historia más elegante */
+#nosotros p {
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+/* Beneficios centrados correctamente */
+.beneficios {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.beneficios li {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Contacto ordenado */
+#contacto p {
+  margin: 6px 0;
+}
+
+#contacto a {
+  display: inline-block;
+  margin: 6px 8px;
+}
+
+/* NUESTRA HISTORIA - DISEÑO */
+#nosotros {
+  background: linear-gradient(135deg, #f3efe6, #e8e1d4);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Contenedor más ancho */
+#nosotros .container {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  opacity: 0;
+  transform: translateY(60px);
+  animation: aparecerNosotros 1.2s ease forwards;
+}
+
+/* Título a la izquierda */
+#nosotros h2 {
+  font-size: 42px;
+  color: var(--verde-principal);
+  font-family: 'Playfair Display', serif;
+  position: relative;
+}
+
+/* Texto a la derecha */
+#nosotros p {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #444;
+}
+
+/* Fondo decorativo suave */
+#nosotros::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(46, 77, 60, 0.05);
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+}
+
+/* Animación */
+@keyframes aparecerNosotros {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #nosotros .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  #nosotros h2::after {
+    margin: 15px auto 0 auto;
+  }
+}
+
+/* FIX RESPONSIVE VERTICAL MÓVIL */
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px 20px 60px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-text h1 {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+  .hero-text p {
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 480px) {
-  .cards { grid-template-columns: 1fr; }
+  .container { padding: 0 10px; max-width: 100%; }
+  .navbar { padding: 10px 15px; }
+  .navbar ul { gap: 10px; font-size: 14px; }
+  .hero { padding: 100px 10px 50px; }
+  .hero-text h1 { font-size: 24px; line-height: 1.1; }
+  .cards { 
+    grid-template-columns: 1fr !important; 
+    gap: 10px; 
+    padding: 0 5px; 
+  }
+  .card { 
+    padding: 15px 10px; 
+    min-height: 200px; 
+  }
+  .card h3 { 
+    font-size: 14px; 
+    line-height: 1.3; 
+    white-space: normal;
+  }
+  .card p { font-size: 16px; }
+  .filtros { flex-direction: column; gap: 10px; align-items: stretch; }
+  .buscador { min-width: auto; width: 100%; }
+  .section { padding: 40px 0; }
+  body { font-size: 16px; }
+  .whatsapp, .btn-carrito-flotante { width: 55px; height: 55px; font-size: 20px; }
+  .btn-carrito-flotante { bottom: 80px; }
 }
