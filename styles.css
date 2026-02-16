@@ -415,7 +415,7 @@ footer {
   }
   .carrito {
     width: 100%;
-    right: -100%; /* 🔥 CORRECCIÓN CLAVE */
+    right: -100%; 
   }
   .carrito {
     border-radius: 0;
@@ -473,52 +473,45 @@ footer {
 
 /* NUESTRA HISTORIA - DISEÑO */
 #nosotros {
-  background: linear-gradient(135deg, #f3efe6, #e8e1d4);
-  padding: 100px 0;
-  position: relative;
-  overflow: hidden;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #f5f2ea, #e8e2d6);
+  display: flex;
+  justify-content: center;
 }
 
-/* Contenedor más ancho */
-#nosotros .container {
-  max-width: 1000px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 60px;
-  align-items: center;
+#nosotros .contenedor {
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 60px 50px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
   position: relative;
-  opacity: 0;
-  transform: translateY(60px);
-  animation: aparecerNosotros 1.2s ease forwards;
 }
 
-/* Título a la izquierda */
 #nosotros h2 {
   font-size: 42px;
-  color: var(--verde-principal);
-  font-family: 'Playfair Display', serif;
-  position: relative;
+  color: #2f4f3e;
+  margin-bottom: 20px;
 }
 
-/* Texto a la derecha */
+#nosotros h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #4b6b3d;
+  display: block;
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
 #nosotros p {
-  font-size: 17px;
-  line-height: 1.9;
+  font-size: 18px;
+  line-height: 1.8;
   color: #444;
+  margin-top: 25px;
 }
 
-/* Fondo decorativo suave */
-#nosotros::before {
-  content: '';
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: rgba(46, 77, 60, 0.05);
-  border-radius: 50%;
-  top: -100px;
-  right: -100px;
-}
 
 /* Animación */
 @keyframes aparecerNosotros {
@@ -586,4 +579,5 @@ footer {
   .whatsapp, .btn-carrito-flotante { width: 55px; height: 55px; font-size: 20px; }
   .btn-carrito-flotante { bottom: 80px; }
 }
+
 
