@@ -169,7 +169,7 @@ function comprarWhatsApp() {
   });
   
   mensaje += `\nTotal: S/ ${total.toFixed(2)}`;
-  window.open(`https://wa.me/51975455690?text=${encodeURIComponent(mensaje)}`, '_blank');
+  window.open(`https://wa.me/51950303041?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
 /* EFECTO NAVBAR SCROLL */
@@ -197,3 +197,4 @@ document.addEventListener('DOMContentLoaded', function() {
   /* Buscador */
   document.getElementById('buscador').addEventListener('input', filtrarProductos);
 });
+
