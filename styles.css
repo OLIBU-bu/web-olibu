@@ -254,7 +254,7 @@ button {
 
 /* Botón Agregar */
 .card button {
-  background: linear-gradient(135deg, #035F2D, #024422);
+  background: linear-gradient(135deg, #046c34, #023f1e);
   color: white;
   padding: 6px 10px;
   font-size: 12px;
@@ -725,6 +725,7 @@ html {
   font-size: 18px;
   color: #444;
 }
+
 
 
 
