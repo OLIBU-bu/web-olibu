@@ -254,7 +254,7 @@ button {
 
 /* Botón Agregar */
 .card button {
-  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  background: linear-gradient(135deg, #035F2D, #024422);
   color: white;
   padding: 6px 10px;
   font-size: 12px;
@@ -340,7 +340,7 @@ button {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #25D366;
+  background: #035F2D;
   color: white;
   padding: 15px;
   border-radius: 50%;
@@ -351,6 +351,7 @@ button {
 }
 
 .whatsapp:hover {
+  background: #048A3D;
   transform: scale(1.1);
 }
 
@@ -375,6 +376,7 @@ button {
 }
 
 .btn-carrito-flotante:hover {
+  background: var(--verde-secundario);
   transform: scale(1.1);
 }
 
@@ -488,7 +490,7 @@ footer {
 
 #nosotros h2 {
   font-size: 42px;
-  color: #2f4f3e;
+    color: #035F2D;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -497,7 +499,7 @@ footer {
   content: "";
   width: 60px;
   height: 4px;
-  background: #4b6b3d;
+  background: #048A3D;
   display: block;
   margin: 15px auto 0;
   border-radius: 2px;
@@ -629,7 +631,7 @@ footer {
 .titulo-video {
   font-size: 42px;
   font-weight: 700;
-  color: #2f4f3e;
+  color: #035F2D;
   margin-bottom: 50px;
   position: relative;
   display: inline-block;
@@ -641,7 +643,7 @@ footer {
 .titulo-video {
   font-size: 42px;
   font-weight: 700;
-  color: #2f4f3e;
+  color: #035F2D;
   margin-bottom: 50px;
   position: relative;
   display: inline-block;
@@ -688,7 +690,7 @@ html {
 
 .titulo-ubicacion {
   font-size: 40px;
-  color: #2f4f3e;
+  color: #035F2D;
   margin-bottom: 40px;
   position: relative;
   display: inline-block;
@@ -698,7 +700,7 @@ html {
   content: "";
   width: 60px;
   height: 4px;
-  background: #4b6b3d;
+ background: #048A3D;
   display: block;
   margin: 15px auto 0;
   border-radius: 2px;
@@ -723,6 +725,7 @@ html {
   font-size: 18px;
   color: #444;
 }
+
 
 
 
