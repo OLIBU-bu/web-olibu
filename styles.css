@@ -102,7 +102,7 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  background: transparent;
+  background: rgba(3, 95, 45, 0.85);
   transition: all 0.4s ease;
 }
 
@@ -725,6 +725,7 @@ html {
   font-size: 18px;
   color: #444;
 }
+
 
 
 
