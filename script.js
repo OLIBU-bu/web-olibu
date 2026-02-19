@@ -60,86 +60,6 @@ function filtrarProductos() {
   renderProductos();
 }
 
-/* AGREGAR AL CARRITO - SIN ABRIR AUTOMÁTICO */
-function agregarCarrito(id) {
-  const producto = productos.find(p => p.id == id);
-  const item = carrito.find(i => i.id == id);
-  
-  if (item) {
-    item.cantidad++;
-  } else {
-    carrito.push({ id: producto.id, nombre: producto.nombre, cantidad: 1 });
-  }
-  actualizarCarrito();
-}
-
-/* ACTIVA EL CARRITO LATERAL */
-function toggleCarrito() {
-  document.getElementById('carrito').classList.toggle('activo');
-}
-
-/* VARIABLES GLOBALES */
-let categoriaActual = 'Todos';
-let carrito = [];
-let totalCarrito = 0; // ← NUEVA VARIABLE GLOBAL
-
-/* GENERAR CATEGORIAS */
-function generarCategorias() {
-  const menu = document.getElementById('menu-categorias');
-  const categorias = ['Todos', ...new Set(productos.map(p => p.categoria))];
-  menu.innerHTML = '';
-  
-  categorias.forEach(cat => {
-    menu.innerHTML += `<button onclick="cambiarCategoria('${cat}')" class="${cat === categoriaActual ? 'activa' : ''}">${cat}</button>`;
-  });
-}
-
-/* CAMBIAR CATEGORIA */
-function cambiarCategoria(cat) {
-  categoriaActual = cat;
-  generarCategorias();
-  renderProductos();
-}
-
-/* OBTENER PRECIO SEGÚN CANTIDAD */
-function obtenerPrecio(producto, cantidad = 1) {
-  let precio = producto.precios[0].precio;
-  producto.precios.forEach(p => {
-    if (cantidad >= p.min) precio = p.precio;
-  });
-  return parseFloat(precio);
-}
-
-/* MOSTRAR PRODUCTOS */
-function renderProductos() {
-  const contenedor = document.getElementById('lista-productos');
-  const textoBusqueda = document.getElementById('buscador').value.toLowerCase();
-  contenedor.innerHTML = '';
-
-  const filtrados = productos.filter(p => {
-    const coincideCategoria = categoriaActual === 'Todos' || p.categoria === categoriaActual;
-    const coincideBusqueda = p.nombre.toLowerCase().includes(textoBusqueda);
-    return coincideCategoria && coincideBusqueda;
-  });
-
-  filtrados.forEach(p => {
-    const precioBase = obtenerPrecio(p, 1);
-    contenedor.innerHTML += `
-      <div class="card">
-        <img src="${p.imagen}" class="producto-img" alt="${p.nombre}">
-        <h3>${p.nombre}</h3>
-        <p>S/ ${precioBase.toFixed(2)}</p>
-        <button onclick="agregarCarrito(${p.id})">Agregar al carrito</button>
-      </div>
-    `;
-  });
-}
-
-/* FILTRO BUSCADOR */
-function filtrarProductos() {
-  renderProductos();
-}
-
 /* AGREGAR AL CARRITO */
 function agregarCarrito(id) {
   const producto = productos.find(p => p.id == id);
@@ -153,7 +73,7 @@ function agregarCarrito(id) {
   actualizarCarrito();
 }
 
-/* ACTIVA EL CARRITO LATERAL */
+/* ACTIVA EL CARRITO */
 function toggleCarrito() {
   document.getElementById('carrito').classList.toggle('activo');
 }
@@ -214,11 +134,11 @@ function actualizarCarrito() {
   });
   
   totalSpan.textContent = total.toFixed(2);
-  totalCarrito = total; // ← GUARDAMOS TOTAL GLOBAL
+  totalCarrito = total;
   actualizarContadorCarrito();
 }
 
-/* CONTADOR CARRITO */
+/* CONTADOR */
 function actualizarContadorCarrito() {
   const btn = document.getElementById('btn-carrito-flotante');
   const contador = document.getElementById('contador-carrito');
@@ -233,16 +153,6 @@ function actualizarContadorCarrito() {
   }
 }
 
-/* EFECTO NAVBAR SCROLL */
-window.addEventListener('scroll', function() {
-  const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-});
-
 /* INICIALIZACIÓN */
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -250,39 +160,42 @@ document.addEventListener('DOMContentLoaded', function() {
   renderProductos();
   actualizarContadorCarrito();
   
-  document.getElementById('btn-carrito-flotante').addEventListener('click', function(e) {
-    e.preventDefault();
-    toggleCarrito();
-  });
-  
-  document.getElementById('buscador').addEventListener('input', filtrarProductos);
-
-  /* ===== INTEGRACIÓN CULQI ===== */
-document.addEventListener("click", function(e) {
-  if (e.target && e.target.id === "btn-pagar") {
-
-    if (totalCarrito <= 0) {
-      alert("El carrito está vacío");
-      return;
-    }
-
-    if (typeof CulqiCheckout === "undefined") {
-      alert("Culqi no está cargando correctamente.");
-      return;
-    }
-
-    const culqi = new CulqiCheckout({
-      publicKey: "TU_PUBLIC_KEY_AQUI",
-      settings: {
-        title: "Olibu",
-        currency: "PEN",
-        amount: Math.round(totalCarrito * 100)
-      }
+  document.getElementById('btn-carrito-flotante')
+    .addEventListener('click', function(e) {
+      e.preventDefault();
+      toggleCarrito();
     });
 
-    culqi.open();
+  document.getElementById('buscador')
+    .addEventListener('input', filtrarProductos);
+
+  /* ===== BOTÓN PAGAR ===== */
+  const btnPagar = document.getElementById("btn-pagar");
+
+  if (btnPagar) {
+    btnPagar.addEventListener("click", function() {
+
+      if (totalCarrito <= 0) {
+        alert("El carrito está vacío");
+        return;
+      }
+
+      if (typeof CulqiCheckout === "undefined") {
+        alert("Culqi no está cargando.");
+        return;
+      }
+
+      const culqi = new CulqiCheckout({
+        publicKey: "TU_PUBLIC_KEY_AQUI",
+        settings: {
+          title: "Olibu",
+          currency: "PEN",
+          amount: Math.round(totalCarrito * 100)
+        }
+      });
+
+      culqi.open();
+    });
   }
+
 });
-  
-
-
