@@ -667,6 +667,10 @@ footer {
   }
 }
 
+/* Scroll mas suave */
+html {
+  scroll-behavior: smooth;
+}
 
 
 
