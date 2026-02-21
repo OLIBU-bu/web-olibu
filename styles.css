@@ -132,7 +132,7 @@ body {
 /* TEXTO */
 .logo span {
   display: inline-block;
-  margin-left: 10px;
+  margin-left: 18px;
   font-family: 'Playfair Display', serif;
   font-size: 30px;
   font-weight: 600;
@@ -734,6 +734,7 @@ html {
   font-size: 18px;
   color: #444;
 }
+
 
 
 
