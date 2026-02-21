@@ -138,6 +138,7 @@ body {
   font-weight: 600;
   letter-spacing: 2px;
   color: white;
+}
 
 /* Menú */
 .navbar ul {
@@ -428,8 +429,6 @@ footer {
   .carrito {
     width: 100%;
     right: -100%; 
-  }
-  .carrito {
     border-radius: 0;
     box-shadow: none;
   }
@@ -758,6 +757,7 @@ nav ul li a {
 nav ul li a:hover {
   opacity: 0.8;
 }
+
 
 
 
