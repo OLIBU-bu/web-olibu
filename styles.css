@@ -117,28 +117,23 @@ body {
 
 /* Logo */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Playfair Display', serif;
-  font-size: 30px;              /* más grande */
-  font-weight: 600;
-  letter-spacing: 2px;          /* separación elegante */
-  text-transform: uppercase;    /* siempre mayúscula */
-  color: white;
+  display: flex;              /* los pone en fila */
+  align-items: center;        /* centra verticalmente */
+  gap: 10px;                  /* espacio entre imagen y texto */
 }
-.logo span {
-  font-family: 'Playfair Display', serif;
-  font-size: 34px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: white;
-}
+
 .logo-img {
-  height: 55px;   /* prueba 45px – 55px según lo veas */
+  height: 48px;               /* deja el tamaño que ya te gusta */
   width: auto;
   display: block;
+}
+
+.logo span {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: white;
 }
 
 /* Menú */
@@ -735,6 +730,7 @@ html {
   font-size: 18px;
   color: #444;
 }
+
 
 
 
