@@ -20,7 +20,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background-image: url('img/fondomosaico.jpg'); /* cambia por tu ruta */
   background-repeat: repeat; /* hace el mosaico */
-  background-size: 180px; /* mantiene tamaño original */
+  background-size: 400px; /* mantiene tamaño original */
   background-attachment: fixed; /* que se quede fijo */
   background-color: #f4f1ea; /* color base si no carga imagen */
   color: #333;
@@ -31,7 +31,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 0.85); /* ← AQUÍ controlas intensidad */
+  background: rgba(255, 255, 255, 0.729); /* ← AQUÍ controlas intensidad */
   z-index: -1;
 }
 /* CONTENEDOR GENERAL */
@@ -775,6 +775,7 @@ nav ul li a {
 nav ul li a:hover {
   opacity: 0.8;
 }
+
 
 
 
