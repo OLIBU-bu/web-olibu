@@ -38,7 +38,7 @@ body {
 }
 
 .light {
-  background: #fafafa;
+  background: transparent;
 }
 
 /* HERO - HERO CON IMAGEN Y ESPACIO PARA NAVBAR */
@@ -495,7 +495,7 @@ footer {
 /* NUESTRA HISTORIA - DISEÑO */
 #nosotros {
   padding: 80px 0;
-  background: linear-gradient(135deg, #f5f2ea, #e8e2d6);
+  background: transparent;
 }
 
 #nosotros .contenedor {
@@ -767,6 +767,7 @@ nav ul li a {
 nav ul li a:hover {
   opacity: 0.8;
 }
+
 
 
 
