@@ -626,7 +626,7 @@ footer {
 
 #video-olibu {
   padding: 100px 20px;
-  background: #f8f6f1;
+  background: transparent;
   text-align: center;
 }
 
@@ -664,7 +664,7 @@ footer {
 .video-section {
   padding: 80px 20px;
   text-align: center;
-  background: #ffffff;
+  background: transparent;
 }
 
 /* Título profesional */
@@ -724,7 +724,7 @@ html {
 
 .ubicacion-section {
   padding: 80px 20px;
-  background: #f8f6f1;
+  background: transparent;
   text-align: center;
 }
 
@@ -740,7 +740,7 @@ html {
   content: "";
   width: 60px;
   height: 4px;
- background: #048A3D;
+ background: transparent;
   display: block;
   margin: 15px auto 0;
   border-radius: 2px;
@@ -790,6 +790,7 @@ nav ul li a {
 nav ul li a:hover {
   opacity: 0.8;
 }
+
 
 
 
