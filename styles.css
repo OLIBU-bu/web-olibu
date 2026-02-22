@@ -791,23 +791,20 @@ nav ul li a:hover {
   opacity: 0.8;
 }
 
+.redes {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 15px;
+}
 
+.redes img {
+  width: 40px;   /* cambia tamaño aquí */
+  height: 40px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.redes img:hover {
+  transform: scale(1.2);
+}
