@@ -18,7 +18,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-image: url('img/fondo-whatsapp.png'); /* cambia por tu ruta */
+  background-image: url('img/fondomosaico.jpg'); /* cambia por tu ruta */
   background-repeat: repeat; /* hace el mosaico */
   background-size: auto; /* mantiene tamaño original */
   background-attachment: fixed; /* que se quede fijo */
@@ -767,6 +767,7 @@ nav ul li a {
 nav ul li a:hover {
   opacity: 0.8;
 }
+
 
 
 
