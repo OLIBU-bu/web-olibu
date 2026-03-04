@@ -857,3 +857,45 @@ nav ul li a:hover {
   border-color: #2e7d32;
   box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.15);
 }
+
+
+/* ===== INTRO ANIMATION ===== */
+#intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: #035F2D; /* verde Olibu */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 1;
+  animation: fadeOutOverlay 3s ease forwards 2s;
+}
+
+#intro-overlay .intro-text {
+  font-size: 42px;
+  font-family: 'Playfair Display', serif;
+  color: white;
+  margin: 0;
+  opacity: 0;
+  animation: slideUpText 1s ease forwards 0.5s;
+}
+
+#intro-overlay .intro-subtext {
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  opacity: 0;
+  animation: slideUpText 1s ease forwards 1.2s;
+}
+
+/* Animations */
+@keyframes slideUpText {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeOutOverlay {
+  to { opacity: 0; pointer-events: none; visibility: hidden; }
+}
