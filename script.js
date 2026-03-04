@@ -170,36 +170,8 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('buscador')
     .addEventListener('input', filtrarProductos);
 
-  /* ===== BOTÓN PAGAR ===== */
-document.addEventListener("click", function(e) {
-  if (e.target && e.target.id === "btn-pagar") {
 
-    if (totalCarrito <= 0) {
-      alert("El carrito está vacío");
-      return;
-    }
-
-    if (typeof Culqi === "undefined") {
-      alert("Culqi no está cargando correctamente.");
-      return;
-    }
-
-    const culqi = new Culqi({
-      publicKey: "TU_PUBLIC_KEY_AQUI"
-    });
-
-    culqi.settings({
-      title: "Olibu",
-      currency: "PEN",
-      amount: Math.round(totalCarrito * 100)
-    });
-
-    culqi.open();
-  }
-});
-    });
-;
-
+  
 /* EFECTO NAVBAR SCROLL */
 window.addEventListener('scroll', function() {
   const navbar = document.querySelector('.navbar');
@@ -239,3 +211,4 @@ function comprarWhatsApp() {
 
   window.open(url, "_blank");
 }
+
