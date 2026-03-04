@@ -859,43 +859,66 @@ nav ul li a:hover {
 }
 
 
-/* ===== INTRO ANIMATION ===== */
+/* ===== INTRO BRAND ===== */
+
 #intro-overlay {
   position: fixed;
   inset: 0;
-  background: #035F2D; /* verde Olibu */
+  background: #0f5d2f; /* verde más profundo premium */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 2000;
-  opacity: 1;
-  animation: fadeOutOverlay 3s ease forwards 2s;
+  z-index: 3000;
+  animation: fadeOutOverlay 3.5s ease forwards 2.5s;
 }
 
-#intro-overlay .intro-text {
-  font-size: 42px;
+.intro-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  opacity: 0;
+  animation: fadeSlideUp 1.2s ease forwards 0.5s;
+}
+
+.intro-logo {
+  width: 60px;
+  height: auto;
+}
+
+.intro-title {
+  font-size: 48px;
   font-family: 'Playfair Display', serif;
-  color: white;
+  color: #ffffff;
+  letter-spacing: 3px;
   margin: 0;
-  opacity: 0;
-  animation: slideUpText 1s ease forwards 0.5s;
 }
 
-#intro-overlay .intro-subtext {
+.intro-subtext {
+  margin-top: 20px;
   font-size: 18px;
-  font-family: 'Poppins', sans-serif;
-  color: white;
+  color: #e8f5e9;
   opacity: 0;
-  animation: slideUpText 1s ease forwards 1.2s;
+  animation: fadeSlideUp 1.2s ease forwards 1.4s;
 }
 
-/* Animations */
-@keyframes slideUpText {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+/* Animaciones */
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeOutOverlay {
-  to { opacity: 0; pointer-events: none; visibility: hidden; }
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
