@@ -193,7 +193,22 @@ function comprarWhatsApp() {
     return;
   }
 
-  let mensaje = "Hola, quiero comprar los siguientes productos:%0A%0A";
+  const nombre = document.getElementById("nombreCliente").value.trim();
+  const dni = document.getElementById("dniCliente").value.trim();
+  const destino = document.getElementById("destinoCliente").value.trim();
+
+  if (!nombre || !dni || !destino) {
+    alert("Por favor completa todos los datos del comprador.");
+    return;
+  }
+
+  let mensaje = "🛒 *NUEVO PEDIDO OLIBU* %0A%0A";
+
+  mensaje += `👤 Nombre: ${nombre}%0A`;
+  mensaje += `🪪 DNI: ${dni}%0A`;
+  mensaje += `📍 Destino: ${destino}%0A%0A`;
+
+  mensaje += "📦 *Productos:* %0A%0A";
 
   carrito.forEach(item => {
     const producto = productos.find(p => p.id == item.id);
@@ -205,9 +220,9 @@ function comprarWhatsApp() {
     mensaje += `  Subtotal: S/ ${subtotal.toFixed(2)}%0A%0A`;
   });
 
-  mensaje += `TOTAL: S/ ${totalCarrito.toFixed(2)}`;
+  mensaje += `💰 *TOTAL: S/ ${totalCarrito.toFixed(2)}*`;
 
-  const numero = "51950303041"; // tu número sin +
+  const numero = "51950303041";
   const url = `https://wa.me/${numero}?text=${mensaje}`;
 
   window.open(url, "_blank");
