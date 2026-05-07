@@ -1,3 +1,14 @@
+/* ======================================
+   AQUÍ SE EDITAN TODOS LOS PRODUCTOS
+   Para cambiar imagen:
+   imagen: "img/nombre.png"
+
+   Para cambiar precio:
+   { min: 1, precio: 20 }
+====================================== */
+
+
+
 const productos = [
   // ACEITE DE OLIVA - EXTRA VIRGEN
     {
@@ -668,7 +679,39 @@ const productos = [
   },
 
 
-  
+    // ACEITUNAS EN PICADILLOS
+    {
+    id: 65,
+    nombre: "Negra - Picadillo - 1.25Kg",
+    categoria: "Aceitunas en Picadillos",
+    imagen: "img/Negra - Picadillo - 1.25Kg.png",
+    precios: [
+      { min: 1, precio: 9.5 },
+      { min: 6, precio: 9 }
+    ]
+  },
+    {
+    id: 66,
+    nombre: "Crema - Picadillo - 1.25Kg",
+    categoria: "Aceitunas en Picadillos",
+    imagen: "img/Crema - Picadillo - 1.25Kg.png",
+    precios: [
+      { min: 1, precio: 9.5 },
+      { min: 6, precio: 9 }
+    ]
+  },
+    {
+    id: 67,
+    nombre: "Verde - Picadillo - 1.25Kg",
+    categoria: "Aceitunas en Picadillos",
+    imagen: "img/Verde - Picadillo - 1.25Kg.png",
+    precios: [
+      { min: 1, precio: 16.5 },
+      { min: 6, precio: 15 }
+    ]
+  },
+
+
     // ACEITUNAS RELLENA EN FRASCOS
     {
     id: 68,
@@ -854,39 +897,6 @@ const productos = [
     ]
   },
 
-  {
-    id: 65,
-    nombre: "Negra - Picadillo - 1.25Kg",
-    categoria: "Picadillos de Aceituna",
-    imagen: "img/Negra - Picadillo - 1.25Kg.png",
-    precios: [
-      { min: 1, precio: 40 },
-      { min: 6, precio: 35 }
-    ]
-  },
-    {
-    id: 66,
-    nombre: "Crema - Picadillo - 1.25Kg",
-    categoria: "Picadillos de Aceituna",
-    imagen: "img/Crema - Picadillo - 1.25Kg.png",
-    precios: [
-      { min: 1, precio: 40 },
-      { min: 6, precio: 35 }
-    ]
-  },
-    {
-    id: 67,
-    nombre: "Verde - Picadillo - 1.25Kg",
-    categoria: "Picadillos de Aceituna",
-    imagen: "img/Verde - Picadillo - 1.25Kg.png",
-    precios: [
-      { min: 1, precio: 40 },
-      { min: 6, precio: 35 }
-    ]
-  },
-
-
-
 
     // DERIVADOS DE OLIBU EN FRASCOS
     {
@@ -974,4 +984,3 @@ const productos = [
     ]
   },
 ];
-
